@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 const { spawn } = require('child_process');
 const axios = require('axios');
 
@@ -17,9 +18,8 @@ app.post('/receive', (req, res) => {
     let outputData = '';
 
     python.stdout.on('data', (output) => {
-        const out = output.toString();
-        outputData += out;
-        console.log(`Python output: ${out}`);
+        outputData += output.toString();
+        console.log(`Python output: ${output.toString()}`);
     });
 
     python.stderr.on('data', (err) => {
@@ -32,9 +32,15 @@ app.post('/receive', (req, res) => {
         try {
             const parsed = JSON.parse(outputData);
 
-            const transcriptText = parsed.transcript
-                .map(line => line.text)
-                .join('\n');
+            if (!parsed.transcript) {
+                return res.status(400).json({
+                    status: false,
+                    message: 'Transcript not found in Python output',
+                    error: parsed.error || 'Transcript missing'
+                });
+            }
+
+            const transcriptText = parsed.transcript.map(line => line.text).join('\n');
 
             const response = await axios.post(
                 'http://127.0.0.1:8000/api/receive-transcript',
@@ -48,15 +54,35 @@ app.post('/receive', (req, res) => {
                 }
             );
 
-            console.log('✅ Forwarded to Laravel:', response.data);
+            const summaryData = JSON.stringify(response.data.summary, null, 2);
+            const safeFileName = data.youtube_url.replace(/[^a-z0-9]/gi, '_') + '.txt';
+            const folder = path.join(__dirname, 'summaries');
+            const filePath = path.join(folder, safeFileName);
+
+            fs.mkdirSync(folder, { recursive: true });
+            fs.writeFileSync(filePath, summaryData, 'utf8');
+
+            console.log(`📁 AI summary saved to: ${filePath}`);
+
+            // ✅ Final response to React
+            res.json({
+                status: true,
+                message: 'Transcript summarized successfully',
+                video_id: parsed.video_id,
+                summary: response.data.summary || null
+            });
+
         } catch (err) {
-            console.error('❌ Failed to forward to Laravel:', err.message);
+            console.error('❌ Failed in pipeline:', err.message);
+            res.status(500).json({
+                status: false,
+                message: 'Server error while processing transcript',
+                error: err.message
+            });
         }
     });
-
-    res.json({ status: 'received and sent to Python' });
 });
 
 app.listen(3000, () => {
-    console.log('Server listening at http://localhost:3000');
+    console.log('🚀 Node server listening at http://localhost:3000');
 });

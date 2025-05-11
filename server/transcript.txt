@@ -1,54 +1,78 @@
-hey guys welcome to island gentry if you
-knew the channel my name is Shawn Montes
-and today I'm gonna be showing you guys
-how to fold you dress shirts properly
-now you really have two options when it
-comes to folding dress shirts one I like
-to use when I'm traveling it's a little
-bit summer and the other one I like to
-use when maybe I'm packing away my
-shirts typically though you're gonna
-want to hang up all your dress shirts I
-mean really the only time I fold my
-dress shirts is when I'm traveling but I
-get it you know maybe you have small
-closets or a limited closet space and
-you need to fold your shirts and put
-them away in a drawer either these shirt
-fold options are going to be perfect
-whether you're traveling or whether
-you're looking at store shirts let's get
-into okay what you're going to want to
-do is make sure all the buttons have
-been buttoned up and then flip the shirt
-over on to the front
-lay the sleeves out nice and flat I'll
-take one save fold that over you've got
-maybe about three inches of fold now
-line the shirt sleeve up with the side
-of the shirt same thing on the other
-side make sure these both sides of the
-folds are even and thin line the sleeves
-up bring the bottom up to about halfway
-of the shirt hold the top
-nicely okay option number two same
-starting position but instead you're
-gonna fold with a sleeve ends fold that
-sweep up to the collar same thing on the
-other side hold it with a sleeve ends
-hold that up to the collar
-now take this side fold that in to about
-mid collar same thing over here and then
-fold the bottom up to about halfway
-again and hold your shirt nice and flat
-this gives you a slimmer fold alright
-guys now you know how to fold your
-shirts properly you got no more excuses
-and you saw how fast it was when you
-start get good at it
-with 30 seconds a shirt tops that's it
-for me today guys if you found the video
-useful drop me a like till next time
-take care of yourselves and your dress
-shirts
-[Music]
+redux a single source of truth for all
+the data in your javascript application
+modern web applications are represented
+as a complex tree of components
+components that constantly produce and
+share data called state and when state
+is decentralized it can become difficult
+to understand and test redux is both a
+pattern and library that helps
+developers implement complex state
+management requirements at scale it was
+created by dan abramov and andrew clark
+at facebook and is one of the most loved
+and hated libraries in the react
+ecosystem it relies on a single
+immutable object to store all of the
+application state kind of like a
+client-side database to change the state
+like when a button is clicked an action
+will be dispatched which has a name like
+an event and a payload with the data
+that it wants to change remember the
+store is immutable so to change the
+state of the application an entirely new
+object is created by passing the current
+state and the action payload into a
+reducer function which returns a new
+object with the entire application state
+the end result is a one-way data flow
+that is predictable and testable and it
+also opens the door to awesome dev tools
+that allow you to time travel through
+your application's data but it comes at
+a cost of additional boilerplate code
+that might add too much complexity to a
+smaller project to get started create a
+react app with your favorite tool then
+install the redux toolkit first use
+configure store to set up the global
+store object which will register any
+reducers defined elsewhere in the code
+then provider will make its data
+accessible to the entire component tree
+next create a slice like pizza to
+represent some data in the store it
+should have a unique name and initial
+state but most importantly it contains a
+collection of reducers which are
+functions that take the old state and an
+action then define the logic required to
+change the state redux toolkit will
+automatically generate actions that
+correspond to the names of these reducer
+functions we can export them then put
+them to use in an actual ui component
+the beauty of redux is that we can
+select data anywhere in the application
+without the need for context or prop
+drilling instead we can grab any
+reactive value or slice in the store
+with the use selector hook now to change
+the application's data an action needs
+to be dispatched to the store that can
+be accomplished with the use dispatch
+hook which might send an action name and
+data payload on a normal browser event
+like a button click now serve the
+application and install the redux
+devtools browser extension unlike a
+normal project you're able to inspect
+and debug the entire timeline of actions
+and state changes in your application
+this has been redux in 100 seconds
+upgrade to fireship pro if you want to
+learn all kinds of other react concepts
+in a format like this thanks for
+watching and i will see you in the next
+one
