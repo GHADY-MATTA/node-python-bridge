@@ -75,3 +75,4 @@ try:
 except ImportError as e:
     print(json.dumps({"error": f"Failed to import YouTubeTranscriptApi: {str(e)}"}, ensure_ascii=False), flush=True)
     sys.exit(1)
+with open("/new_path/transcript.txt", "w", encoding="utf-8") as f:
