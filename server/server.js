@@ -114,3 +114,11 @@ function logError(message) {
 function logSuccess(message) {
     console.log('Success:', message);
 }
+catch (err) {
+    logError('Failed in pipeline:', err.message);
+    res.status(500).json({
+        status: false,
+        message: 'Server error while processing transcript',
+        error: err.message
+    });
+}
