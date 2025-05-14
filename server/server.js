@@ -29,3 +29,10 @@ python.on('close', async (code) => {
     console.log(`Python script exited with code ${code}`);
 });
 const parsed = JSON.parse(outputData);
+if (!parsed.transcript) {
+    return res.status(400).json({
+        status: false,
+        message: 'Transcript not found in Python output',
+        error: parsed.error || 'Transcript missing'
+    });
+}
