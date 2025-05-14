@@ -69,3 +69,6 @@ res.json({
         error: err.message
     });
 }
+app.listen(3000, () => {
+    console.log('🚀 Node server listening at http://localhost:3000');
+});
