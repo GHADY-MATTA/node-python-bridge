@@ -48,4 +48,10 @@ try:
 except Exception as e:
     print(json.dumps({"error": f"Failed to save transcript: {str(e)}"}, ensure_ascii=False), flush=True)
     sys.exit(1)
-Handle file saving failure
+output = {
+    "video_id": video_id,
+    "title": title,
+    "channel": channel,
+    "language": language,
+    "transcript": transcript
+}
