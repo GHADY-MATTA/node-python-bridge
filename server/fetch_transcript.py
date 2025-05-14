@@ -45,3 +45,7 @@ try:
     with open("transcript.txt", "w", encoding="utf-8") as f:
         for line in transcript:
             f.write(line["text"] + "\n")
+except Exception as e:
+    print(json.dumps({"error": f"Failed to save transcript: {str(e)}"}, ensure_ascii=False), flush=True)
+    sys.exit(1)
+Handle file saving failure
