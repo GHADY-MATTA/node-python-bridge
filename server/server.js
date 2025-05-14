@@ -1,2 +1,5 @@
-npm init -y
-npm install express fs path child_process axios cors
+const express = require('express');
+const app = express();
+app.listen(3000, () => {
+    console.log('Server is running');
+});
