@@ -56,3 +56,10 @@ output = {
     "transcript": transcript
 }
 print(json.dumps(output, ensure_ascii=False), flush=True)
+def extract_video_id(url):
+    try:
+        qs = parse_qs(urlparse(url).query)
+        return qs.get("v", [None])[0]
+    except Exception as e:
+        print(json.dumps({"error": f"Failed to extract video ID: {str(e)}"}, ensure_ascii=False), flush=True)
+        sys.exit(1)
