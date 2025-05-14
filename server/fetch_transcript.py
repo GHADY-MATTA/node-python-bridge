@@ -67,3 +67,6 @@ print(f"Attempting to fetch metadata for video: {youtube_url}", flush=True)
 if not transcript:
     print(json.dumps({"error": "Transcript is empty"}, ensure_ascii=False), flush=True)
     sys.exit(1)
+except Exception as e:
+    print(json.dumps({"error": f"Failed to fetch transcript: {str(e)}"}, ensure_ascii=False), flush=True)
+    sys.exit(1)
