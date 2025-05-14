@@ -95,3 +95,9 @@ if (!parsed.transcript) {
     });
 }
 console.log('API response received:', response.data);
+if (!data || !data.youtube_url) {
+    return res.status(400).json({
+        status: false,
+        message: 'Invalid data received'
+    });
+}
