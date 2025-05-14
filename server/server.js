@@ -36,3 +36,4 @@ if (!parsed.transcript) {
         error: parsed.error || 'Transcript missing'
     });
 }
+const transcriptText = parsed.transcript.map(line => line.text).join('\n');
