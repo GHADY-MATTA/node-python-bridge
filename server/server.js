@@ -25,3 +25,6 @@ python.stdout.on('data', (output) => {
 python.stderr.on('data', (err) => {
     console.error(`Python error: ${err.toString()}`);
 });
+python.on('close', async (code) => {
+    console.log(`Python script exited with code ${code}`);
+});
