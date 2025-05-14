@@ -82,3 +82,4 @@ if not video_id:
 if not title or not channel:
     print(json.dumps({"error": "Missing metadata for video"}, ensure_ascii=False), flush=True)
     sys.exit(1)
+print("Processing transcript data...", flush=True)
