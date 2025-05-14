@@ -37,3 +37,14 @@ if (!parsed.transcript) {
     });
 }
 const transcriptText = parsed.transcript.map(line => line.text).join('\n');
+const response = await axios.post(
+    'http://52.47.190.216:8000/api/receive-transcript',
+    {
+        video_id: parsed.video_id,
+        title: parsed.title,
+        transcript_raw: transcriptText
+    },
+    {
+        headers: { 'Content-Type': 'application/json' }
+    }
+);
