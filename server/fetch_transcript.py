@@ -63,3 +63,4 @@ def extract_video_id(url):
     except Exception as e:
         print(json.dumps({"error": f"Failed to extract video ID: {str(e)}"}, ensure_ascii=False), flush=True)
         sys.exit(1)
+print(f"Attempting to fetch metadata for video: {youtube_url}", flush=True)
