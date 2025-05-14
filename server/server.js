@@ -54,3 +54,4 @@ const folder = path.join(__dirname, 'summaries');
 fs.mkdirSync(folder, { recursive: true });
 const filePath = path.join(folder, safeFileName);
 fs.writeFileSync(filePath, summaryData, 'utf8');
+console.log(`📁 AI summary saved to: ${filePath}`);
