@@ -101,3 +101,6 @@ def get_video_metadata(url):
     except Exception:
         return "Unknown", "Unknown"
 print(f"Extracted video ID: {video_id}", flush=True)
+if len(transcript) < 5:
+    print(json.dumps({"error": "Transcript too short"}, ensure_ascii=False), flush=True)
+    sys.exit(1)
