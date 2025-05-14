@@ -94,3 +94,9 @@ try:
 except IOError as e:
     print(json.dumps({"error": f"Failed to write to file: {str(e)}"}, ensure_ascii=False), flush=True)
     sys.exit(1)
+def get_video_metadata(url):
+    try:
+        yt = YouTube(url)
+        return yt.title, yt.author
+    except Exception:
+        return "Unknown", "Unknown"
