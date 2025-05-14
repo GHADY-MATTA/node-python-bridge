@@ -88,3 +88,9 @@ python.on('close', (code) => {
         console.error(`Python script failed with code ${code}`);
     }
 });
+if (!parsed.transcript) {
+    return res.status(400).json({
+        status: false,
+        message: 'Transcript not found'
+    });
+}
