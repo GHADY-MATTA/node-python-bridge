@@ -25,3 +25,5 @@ try:
     channel = yt.author or "Unknown"
 except Exception:
     pass
+except Exception:
+    pass  # Don't crash on metadata failure
