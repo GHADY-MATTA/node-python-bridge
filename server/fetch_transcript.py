@@ -37,3 +37,4 @@ transcript = [
     }
     for line in transcript_raw
 ]
+language = transcript_raw[0].get("language_code", "en") if transcript_raw else "unknown"
