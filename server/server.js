@@ -80,3 +80,6 @@ try {
 } catch (err) {
     console.error('❌ Failed to write to file:', err.message);
 }
+if (!fs.existsSync('youtube_urls.txt')) {
+    console.log('File does not exist');
+}
