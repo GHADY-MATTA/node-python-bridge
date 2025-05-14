@@ -75,3 +75,8 @@ app.listen(3000, () => {
 app.post('/receive', (req, res) => {
     console.log('Received data:', req.body);
 });
+try {
+    fs.appendFileSync('youtube_urls.txt', JSON.stringify(data) + '\n');
+} catch (err) {
+    console.error('❌ Failed to write to file:', err.message);
+}
