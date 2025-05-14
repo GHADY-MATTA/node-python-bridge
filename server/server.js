@@ -94,3 +94,4 @@ if (!parsed.transcript) {
         message: 'Transcript not found'
     });
 }
+console.log('API response received:', response.data);
