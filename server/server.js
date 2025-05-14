@@ -3,10 +3,12 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 const axios = require('axios');
+const cors = require("cors");
+
 
 const app = express();
 app.use(express.json());
-
+app.use(cors({origin:"*"}));
 app.post('/receive', (req, res) => {
     const data = req.body;
     fs.appendFileSync('youtube_urls.txt', JSON.stringify(data) + '\n');
@@ -43,7 +45,7 @@ app.post('/receive', (req, res) => {
             const transcriptText = parsed.transcript.map(line => line.text).join('\n');
 
             const response = await axios.post(
-                'http://127.0.0.1:8000/api/receive-transcript',
+                'http://52.47.190.216:8000/api/receive-transcript',
                 {
                     video_id: parsed.video_id,
                     title: parsed.title,
