@@ -48,3 +48,4 @@ const response = await axios.post(
         headers: { 'Content-Type': 'application/json' }
     }
 );
+const summaryData = JSON.stringify(response.data.summary, null, 2);
