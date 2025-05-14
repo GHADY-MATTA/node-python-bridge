@@ -83,3 +83,7 @@ if not title or not channel:
     print(json.dumps({"error": "Missing metadata for video"}, ensure_ascii=False), flush=True)
     sys.exit(1)
 print("Processing transcript data...", flush=True)
+filename = f"transcript_{video_id}.txt"
+with open(filename, "w", encoding="utf-8") as f:
+    for line in transcript:
+        f.write(line["text"] + "\n")
