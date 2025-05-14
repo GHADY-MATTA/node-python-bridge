@@ -87,3 +87,10 @@ filename = f"transcript_{video_id}.txt"
 with open(filename, "w", encoding="utf-8") as f:
     for line in transcript:
         f.write(line["text"] + "\n")
+try:
+    with open("transcript.txt", "w", encoding="utf-8") as f:
+        for line in transcript:
+            f.write(line["text"] + "\n")
+except IOError as e:
+    print(json.dumps({"error": f"Failed to write to file: {str(e)}"}, ensure_ascii=False), flush=True)
+    sys.exit(1)
