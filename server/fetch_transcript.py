@@ -70,3 +70,8 @@ if not transcript:
 except Exception as e:
     print(json.dumps({"error": f"Failed to fetch transcript: {str(e)}"}, ensure_ascii=False), flush=True)
     sys.exit(1)
+try:
+    from youtube_transcript_api import YouTubeTranscriptApi
+except ImportError as e:
+    print(json.dumps({"error": f"Failed to import YouTubeTranscriptApi: {str(e)}"}, ensure_ascii=False), flush=True)
+    sys.exit(1)
