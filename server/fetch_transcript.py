@@ -64,3 +64,6 @@ def extract_video_id(url):
         print(json.dumps({"error": f"Failed to extract video ID: {str(e)}"}, ensure_ascii=False), flush=True)
         sys.exit(1)
 print(f"Attempting to fetch metadata for video: {youtube_url}", flush=True)
+if not transcript:
+    print(json.dumps({"error": "Transcript is empty"}, ensure_ascii=False), flush=True)
+    sys.exit(1)
