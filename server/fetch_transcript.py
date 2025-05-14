@@ -13,3 +13,4 @@ def extract_video_id(url):
         return qs.get("v", [None])[0]
     except Exception:
         return None
+video_id = extract_video_id(youtube_url)
