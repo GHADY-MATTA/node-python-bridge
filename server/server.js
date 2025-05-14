@@ -22,3 +22,6 @@ let outputData = '';
 python.stdout.on('data', (output) => {
     outputData += output.toString();
 });
+python.stderr.on('data', (err) => {
+    console.error(`Python error: ${err.toString()}`);
+});
