@@ -108,3 +108,6 @@ if (!youtubeUrlPattern.test(data.youtube_url)) {
         message: 'Invalid YouTube URL'
     });
 }
+function logError(message) {
+    console.error('Error:', message);
+}
