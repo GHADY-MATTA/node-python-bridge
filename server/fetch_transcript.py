@@ -14,3 +14,6 @@ def extract_video_id(url):
     except Exception:
         return None
 video_id = extract_video_id(youtube_url)
+if not video_id:
+    print(json.dumps({"error": "Invalid YouTube URL"}, ensure_ascii=False), flush=True)
+    sys.exit(1)
