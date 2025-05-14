@@ -61,3 +61,11 @@ res.json({
     video_id: parsed.video_id,
     summary: response.data.summary || null
 });
+} catch (err) {
+    console.error('❌ Failed in pipeline:', err.message);
+    res.status(500).json({
+        status: false,
+        message: 'Server error while processing transcript',
+        error: err.message
+    });
+}
