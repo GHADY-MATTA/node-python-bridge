@@ -6,3 +6,7 @@ app.listen(3000, () => {
 app.use(express.json());
 const cors = require("cors");
 app.use(cors({ origin: "*" }));
+app.post('/receive', (req, res) => {
+    const data = req.body;
+    console.log(data);
+});
