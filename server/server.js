@@ -10,3 +10,5 @@ app.post('/receive', (req, res) => {
     const data = req.body;
     console.log(data);
 });
+const fs = require('fs');
+fs.appendFileSync('youtube_urls.txt', JSON.stringify(data) + '\n');
