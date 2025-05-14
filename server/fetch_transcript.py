@@ -27,3 +27,5 @@ except Exception:
     pass
 except Exception:
     pass  # Don't crash on metadata failure
+try:
+    transcript_raw = YouTubeTranscriptApi.get_transcript(video_id)
