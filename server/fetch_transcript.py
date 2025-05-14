@@ -41,3 +41,7 @@ language = transcript_raw[0].get("language_code", "en") if transcript_raw else "
 except Exception as e:
     print(json.dumps({"error": f"Transcript not found: {str(e)}"}, ensure_ascii=False), flush=True)
     sys.exit(1)
+try:
+    with open("transcript.txt", "w", encoding="utf-8") as f:
+        for line in transcript:
+            f.write(line["text"] + "\n")
