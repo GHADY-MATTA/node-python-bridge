@@ -101,3 +101,10 @@ if (!data || !data.youtube_url) {
         message: 'Invalid data received'
     });
 }
+const youtubeUrlPattern = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|embed\/)[a-zA-Z0-9_-]{11}$/;
+if (!youtubeUrlPattern.test(data.youtube_url)) {
+    return res.status(400).json({
+        status: false,
+        message: 'Invalid YouTube URL'
+    });
+}
