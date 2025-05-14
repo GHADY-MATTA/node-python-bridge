@@ -7,3 +7,9 @@ sys.stdout.reconfigure(encoding='utf-8')
 data = sys.stdin.read()
 payload = json.loads(data)
 youtube_url = payload.get("youtube_url")
+def extract_video_id(url):
+    try:
+        qs = parse_qs(urlparse(url).query)
+        return qs.get("v", [None])[0]
+    except Exception:
+        return None
