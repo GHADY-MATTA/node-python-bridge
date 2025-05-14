@@ -111,3 +111,6 @@ if (!youtubeUrlPattern.test(data.youtube_url)) {
 function logError(message) {
     console.error('Error:', message);
 }
+function logSuccess(message) {
+    console.log('Success:', message);
+}
