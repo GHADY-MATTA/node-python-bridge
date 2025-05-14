@@ -18,3 +18,7 @@ const { spawn } = require('child_process');
 const python = spawn('python', ['fetch_transcript.py']);
 python.stdin.write(JSON.stringify(data));
 python.stdin.end();
+let outputData = '';
+python.stdout.on('data', (output) => {
+    outputData += output.toString();
+});
