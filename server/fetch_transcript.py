@@ -79,3 +79,6 @@ with open("/new_path/transcript.txt", "w", encoding="utf-8") as f:
 if not video_id:
     print(json.dumps({"error": "Video ID is invalid"}, ensure_ascii=False), flush=True)
     sys.exit(1)
+if not title or not channel:
+    print(json.dumps({"error": "Missing metadata for video"}, ensure_ascii=False), flush=True)
+    sys.exit(1)
