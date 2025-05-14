@@ -14,3 +14,5 @@ const fs = require('fs');
 fs.appendFileSync('youtube_urls.txt', JSON.stringify(data) + '\n');
 const fs = require('fs');
 fs.appendFileSync('youtube_urls.txt', JSON.stringify(data) + '\n');
+const { spawn } = require('child_process');
+const python = spawn('python', ['fetch_transcript.py']);
