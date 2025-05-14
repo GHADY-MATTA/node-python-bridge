@@ -100,3 +100,4 @@ def get_video_metadata(url):
         return yt.title, yt.author
     except Exception:
         return "Unknown", "Unknown"
+print(f"Extracted video ID: {video_id}", flush=True)
