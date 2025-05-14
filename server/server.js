@@ -83,3 +83,8 @@ try {
 if (!fs.existsSync('youtube_urls.txt')) {
     console.log('File does not exist');
 }
+python.on('close', (code) => {
+    if (code !== 0) {
+        console.error(`Python script failed with code ${code}`);
+    }
+});
