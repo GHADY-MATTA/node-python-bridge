@@ -55,3 +55,9 @@ fs.mkdirSync(folder, { recursive: true });
 const filePath = path.join(folder, safeFileName);
 fs.writeFileSync(filePath, summaryData, 'utf8');
 console.log(`📁 AI summary saved to: ${filePath}`);
+res.json({
+    status: true,
+    message: 'Transcript summarized successfully',
+    video_id: parsed.video_id,
+    summary: response.data.summary || null
+});
