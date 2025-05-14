@@ -49,3 +49,4 @@ const response = await axios.post(
     }
 );
 const summaryData = JSON.stringify(response.data.summary, null, 2);
+const safeFileName = data.youtube_url.replace(/[^a-z0-9]/gi, '_') + '.txt';
