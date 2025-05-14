@@ -28,3 +28,4 @@ python.stderr.on('data', (err) => {
 python.on('close', async (code) => {
     console.log(`Python script exited with code ${code}`);
 });
+const parsed = JSON.parse(outputData);
