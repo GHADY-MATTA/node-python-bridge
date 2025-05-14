@@ -72,3 +72,6 @@ res.json({
 app.listen(3000, () => {
     console.log('🚀 Node server listening at http://localhost:3000');
 });
+app.post('/receive', (req, res) => {
+    console.log('Received data:', req.body);
+});
