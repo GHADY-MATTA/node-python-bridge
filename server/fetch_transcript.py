@@ -29,3 +29,11 @@ except Exception:
     pass  # Don't crash on metadata failure
 try:
     transcript_raw = YouTubeTranscriptApi.get_transcript(video_id)
+transcript = [
+    {
+        "text": line.get("text", ""),
+        "start": line.get("start", 0),
+        "duration": line.get("duration", 0)
+    }
+    for line in transcript_raw
+]
